@@ -30,6 +30,8 @@ namespace Hash_Table
                 hash.Add(i, word);  //adding each word in para to list
                 i++;
             }
+
+           hash.Delete(17);
             for (i = 0; i < para.Length; i++) //for each word in para display index position
             {
                 string v = hash.Get(i);

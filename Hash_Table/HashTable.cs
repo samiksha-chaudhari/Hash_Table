@@ -64,5 +64,23 @@ namespace Hash_Table
             return default(V);
         }
 
+        public void Delete(K key)
+        {
+            int position = GetPosition(key);
+            LinkedList<KValue<K, V>> linkedList = GetLinkedList(position);
+            bool Found = false;
+            KValue<K, V> foundItem = default(KValue<K, V>);
+            foreach (KValue<K, V> word in linkedList)
+            {
+                if (word.Key.Equals(key))
+                {
+                    Found = true;
+                    foundItem = word;
+                }
+            }
+            if (Found)
+                linkedList.Remove(foundItem);
+        }
+
     }
 }
