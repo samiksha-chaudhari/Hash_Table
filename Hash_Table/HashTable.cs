@@ -30,6 +30,7 @@ namespace Hash_Table
             int position = key.GetHashCode() % size;
             return Math.Abs(position);
         }
+
         public void Add(K Key, V value)
         {
             int position = GetPosition(Key);
