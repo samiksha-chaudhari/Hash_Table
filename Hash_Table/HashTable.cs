@@ -7,14 +7,14 @@ namespace Hash_Table
     class HashTable<K, V>
     {
         public int size;
-        public struct KValue<k, v>
+        public struct KValue<k, v> 
         {
             public k Key { get; set; }
             public v Value { get; set; }
         }
 
         public LinkedList<KValue<K, V>>[] items;
-        public HashTable(int size)
+        public HashTable(int size) //constuctor
         {
             this.size = size;
             this.items = new LinkedList<KValue<K, V>>[size];
@@ -30,7 +30,11 @@ namespace Hash_Table
             int position = key.GetHashCode() % size;
             return Math.Abs(position);
         }
-
+        /// <summary>
+        /// method to add data in list
+        /// </summary>
+        /// <param name="Key"></param>
+        /// <param name="value"></param>
         public void Add(K Key, V value)
         {
             int position = GetPosition(Key);
@@ -38,7 +42,11 @@ namespace Hash_Table
             KValue<K, V> item = new KValue<K, V>() { Key = Key, Value = value };
             linkedlist.AddLast(item);
         }
-        
+        /// <summary>
+        /// method to create linked list
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public LinkedList<KValue<K, V>> GetLinkedList(int position)
         {
             LinkedList<KValue<K, V>> linkedList = items[position];
@@ -49,7 +57,11 @@ namespace Hash_Table
             }
             return linkedList;
         }
-        
+        /// <summary>
+        /// method to get value
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public V Get(K key)
         {
             int position = GetPosition(key);
@@ -63,7 +75,10 @@ namespace Hash_Table
             }
             return default(V);
         }
-
+        /// <summary>
+        /// method to delete given index word
+        /// </summary>
+        /// <param name="key"></param>
         public void Delete(K key)
         {
             int position = GetPosition(key);
